@@ -133,10 +133,20 @@ Version: Glory
 
 ---
 
-### @Judgment
+### @Judgment (Optional)
 
 **Description:**  
-Defines timing windows and scoring rates for the chart.
+Timing windows and scoring rates. Include only when judgment system is well-defined and certain.
+
+**When to include:**
+- Source game has standardized judgment
+- Timing windows are documented
+- Scoring rates are known
+
+**When to omit:**
+- Judgment system unknown or varies
+- Source is non-public game
+- Multiple possible interpretations exist
 
 **Format:**
 ```
@@ -145,78 +155,24 @@ Window: <w1>, <w2>, <w3>, ...
 Rate: <r1>, <r2>, <r3>, ...
 ```
 
-**Fields:**
+**Examples:**
 
-#### Window
-Timing windows in milliseconds (±ms).
-
-- **Type:** Comma-separated floats
-- **Order:** Best to worst judgment
-- **Units:** Milliseconds (±)
-
-**Example:**
+✅ **Include (certain):**
 ```
-Window: 16.5, 40.5, 73.5, 103.5, 127.5, 164.5
-```
-Means:
-- Marvelous: ±16.5ms
-- Perfect: ±40.5ms
-- Great: ±73.5ms
-- Good: ±103.5ms
-- Bad: ±127.5ms
-- Miss: +164.5ms
-
-#### Rate
-Score percentage for each judgment tier.
-
-- **Type:** Comma-separated floats
-- **Range:** 0-100
-- **Order:** Must match Window order
-- **Units:** Percentage
-- **Note:** If the last rate is 0, the correspond window is considered **early Miss**.
-
-**Example:**
-```
-Rate: 100, 100, 66.67, 33.33, 16.67, 0
-```
-Means:
-- Marvelous: 100% of max score
-- Perfect: 100% of max score
-- Great: 66.67%
-- Good: 33.33%
-- Bad: 16.67%
-- Miss: 0%
-
-**Complete Example:**
-```
+# osu!mania - calculated from OD
 @Judgment
 Window: 16.5, 40.5, 73.5, 103.5, 127.5, 164.5
 Rate: 100, 100, 66.67, 33.33, 16.67, 0
 ```
 
-**Game Presets:**
+❌ **Omit (uncertain):**
 ```
-# osu!mania (OD 8)
-Window: 16.5, 40.5, 73.5, 103.5, 127.5, 164.5
-Rate: 100, 100, 66.67, 33.33, 16.67, 0
+# BMS - implementation varies
+# Judgment section omitted
 
-# osu!mania (OD 10)
-Window: 16.5, 34.5, 67.5, 97.5, 121.5, 158.5
-Rate: 100, 100, 66.67, 33.33, 16.67, 0
-
-# Quaver (Standard)
-Window: 18, 43, 76, 106, 127, 164
-Rate: 100, 98.25, 65, 25, 0, 0
-
-# DJMAX Respect V
-# Note: This preset is NOT official.
-Window: 42, 60, 78, 99, 120, 129, 138, 147, 159, 162, 177
-Rate: 100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 1
-
-# EZ2ON REBOOT : R (STANDARD)
-# Note: This preset is NOT official.
-Window: 22, 55, 110
-Rate: 100, 70, 20
+@Layout
+Type: 7
+...
 ```
 
 **Rules:**
@@ -224,6 +180,11 @@ Rate: 100, 70, 20
 - Window values must be in ascending order
 - Rate values must be in descending order
 - Rate values must be 0-100
+- If the last rate value is 0, the correspond window is considered **early MISS** window
+
+**Note for ML/Analysis:**
+- Charts without judgment info can still be analyzed using pattern-only features
+- Estimated judgment values should not be included
 
 ---
 
