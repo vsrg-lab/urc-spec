@@ -64,7 +64,7 @@ URC (Universal Rhythm Chart) is a text-based format for representing vertical sc
 Sections must appear in this order:
 1. `@URC` (required)
 2. `@Metadata` (required)
-3. `@Judgment` (required)
+3. `@Judgment`
 4. `@Layout` (required)
 5. `@Timing` (required)
 6. `@Notes` (required)
