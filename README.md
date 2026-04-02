@@ -18,7 +18,7 @@ URC is designed to be:
 
 ## Quick Example
 ```urc
-@URC 1.0
+@URC 1.1
 
 @Metadata
 Original: osu!mania
@@ -98,7 +98,7 @@ Console.WriteLine($"Notes: {chart.Notes.Count}");
 
 URC files consist of sections marked with `@` prefix:
 ```
-@URC 1.0              // Version header
+@URC 1.1              // Version header
 
 @Metadata             // Song and chart information
 Original: <game>
