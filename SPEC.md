@@ -1,4 +1,4 @@
-# URC Format Specification v1.0
+# URC Format Specification v1.1
 
 **Version:** 1.1  
 **Date:** 2026-04-02
@@ -83,14 +83,14 @@ File format version identifier. Must be the first line.
 
 **Example:**
 ```
-@URC 1.0
+@URC 1.1
 ```
 
 **Fields:**
 - `major` - Major version number (breaking changes)
 - `minor` - Minor version number (backward compatible)
 
-**Current Version:** 1.0
+**Current Version:** 1.1
 
 ---
 
@@ -291,19 +291,19 @@ BPM and time signature information.
 - `timestamp` - Time in milliseconds (integer)
 - `bpm` - Beats per minute (float)
 - `meter` - Time signature (string)
-- `multiplier` - SV multiplier (float)
+- `multiplier` - SV multiplier (float) (optional)
 
 **Example:**
 ```
 @Timing
-0, 184, 4/4
+0, 184, 4/4, 1.5
 ```
 
 **Multiple BPM changes:**
 ```
 @Timing
-0, 180, 4/4
-45500, 222.22, 4/4
+0, 180, 4/4, 1.0
+45500, 222.22, 4/4, 0.5
 120000, 184, 3/4
 ```
 
@@ -489,6 +489,10 @@ See [examples/](examples/) directory:
 - Basic note types
 - Long note support
 - Special lane support
+
+### v1.1 (2026-04-02)
+- Added `multiplier` field to @Timing for SV support
+- `multiplier` defaults to 1.0 for backward compatibility
 
 ---
 
