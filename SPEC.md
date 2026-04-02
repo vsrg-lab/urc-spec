@@ -284,13 +284,14 @@ BPM and time signature information.
 **Format:**
 ```
 @Timing
-<timestamp>, <bpm>, <meter>
+<timestamp>, <bpm>, <meter>, <multiplier>
 ```
 
 **Fields:**
 - `timestamp` - Time in milliseconds (integer)
 - `bpm` - Beats per minute (float)
 - `meter` - Time signature (string)
+- `multiplier` - SV multiplier (float)
 
 **Example:**
 ```
@@ -317,6 +318,7 @@ BPM and time signature information.
 - Timestamps must be in ascending order
 - BPM must be positive
 - Meter format: `<beats>/<note_value>`
+- If `multiplier` is empty, considered as 1.0
 
 ---
 
