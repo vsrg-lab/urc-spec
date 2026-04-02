@@ -1,7 +1,7 @@
 # URC Format Specification v1.0
 
-**Version:** 1.0  
-**Date:** 2025-12-12
+**Version:** 1.1  
+**Date:** 2026-04-02
 **Status:** Stable
 
 ## Table of Contents
