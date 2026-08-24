@@ -51,49 +51,6 @@ Special: None
 - **[Examples](examples/)** - Sample URC files for various scenarios
 - **[Changelog](CHANGELOG.md)** - Version history and updates
 
-## 🎮 Supported Source Formats
-
-| Format | Game | Extension | Status |
-|--------|------|-----------|--------|
-| osu!mania | osu! | `.osu` | ✅ Supported |
-| BMS | beatmania IIDX | `.bms`, `.bme`, `.bml` | ✅ Supported |
-| StepMania | StepMania | `.sm`, `.ssc` | ✅ Supported |
-| Quaver | Quaver | `.qua` | ✅ Supported |
-| O2Jam | O2Jam | `.ojn` | 🔜 Planned |
-| DJMAX | DJMAX | N/A | 🔜 Planned |
-
-## 🚀 Quick Start
-
-### Converting a Chart
-```bash
-# Using urc-converter
-urc-converter convert chart.osu -o chart.urc
-```
-
-### Parsing in Python
-```python
-from urc_parser import UrcParser
-
-parser = UrcParser()
-chart = parser.parse('chart.urc')
-
-print(f"Title: {chart.metadata.title}")
-print(f"Keys: {chart.layout.type}")
-print(f"Notes: {len(chart.notes)}")
-```
-
-### Parsing in C#
-```csharp
-using VsrgLab.UrcParser;
-
-var parser = new UrcParser();
-var chart = parser.Parse("chart.urc");
-
-Console.WriteLine($"Title: {chart.Metadata.Title}");
-Console.WriteLine($"Keys: {chart.Layout.Type}");
-Console.WriteLine($"Notes: {chart.Notes.Count}");
-```
-
 ## 📖 Format Overview
 
 URC files consist of sections marked with `@` prefix:
