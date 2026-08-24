@@ -98,7 +98,3 @@ Contributions are welcome! Please feel free to:
 ## 📝 License
 
 MIT
-
----
-
-**Note:** This is a research project developed as part of graduate studies (2026-2028) on ML-based difficulty prediction for rhythm games.
